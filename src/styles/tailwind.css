@@ -1,0 +1,122 @@
+/* tailwind.css */
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #009EE2;
+    --color-secondary: #FFEC00;
+    --color-accent: #E5007E;
+    --color-dark: #0A0A0A;
+    --color-darker: #050505;
+    --color-gray-dark: #121212;
+    --color-gray-medium: #1E1E1E;
+    --color-gray-light: #2A2A2A;
+}
+
+/* tailwind.css */
+@layer utilities {
+    .bg-primary {
+        background-color: var(--color-primary);
+    }
+
+    .bg-secondary {
+        background-color: var(--color-secondary);
+    }
+
+    .bg-accent {
+        background-color: var(--color-accent);
+    }
+
+    .text-primary {
+        color: var(--color-primary);
+    }
+
+    .text-secondary {
+        color: var(--color-secondary);
+    }
+
+    .text-accent {
+        color: var(--color-accent);
+    }
+
+    .pixel-animation {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .pixel-animation::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        background: linear-gradient(45deg, var(--color-primary), var(--color-accent), var(--color-secondary), var(--color-primary));
+        background-size: 400% 400%;
+        animation: pixelGradient 15s ease infinite;
+        filter: blur(15px);
+        opacity: 0.5;
+        z-index: -1;
+    }
+
+    .glow {
+        box-shadow: 0 0 15px rgba(0, 158, 226, 0.3), 0 0 30px rgba(229, 0, 126, 0.2);
+    }
+
+    .glow-primary {
+        box-shadow: 0 0 15px rgba(0, 158, 226, 0.3);
+    }
+
+    .glow-secondary {
+        box-shadow: 0 0 15px rgba(255, 236, 0, 0.3);
+    }
+
+    .glow-accent {
+        box-shadow: 0 0 15px rgba(229, 0, 126, 0.3);
+    }
+
+    @keyframes pixelGradient {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .pixel-grid {
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 20px 20px;
+    }
+
+    .pixel-art {
+        image-rendering: pixelated;
+    }
+}
+
+@layer components {
+    .nav-link {
+        position: relative;
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: var(--color-secondary);
+        transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+}
