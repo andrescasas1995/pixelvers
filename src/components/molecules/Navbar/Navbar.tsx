@@ -8,7 +8,7 @@ export const Navbar = () => {
     return (
         <nav className="bg-darker text-white shadow-lg">
             <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-                <div className="text-2xl font-bold select-none">AC</div>
+                <div className="initials-logo" data-text="AC">AC</div>
 
                 {/* Enlaces para escritorio */}
                 <div className="hidden md:flex space-x-6">
